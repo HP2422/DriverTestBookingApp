@@ -1,0 +1,221 @@
+/* Hey Sir, This is my css style that I created for inputfield and buttons. */
+
+body {
+    background-color: #242329;
+}
+
+main {
+    padding: 2rem;
+}
+
+.input-group {
+    position: relative;
+    border-radius: 5rem;
+    padding: 2px;
+    justify-items: center;
+}
+
+.input {
+    padding: 10px;
+    border: none;
+    margin: auto;
+    border-radius: 4px;
+    font: inherit;
+    color: #fff;
+    background-color: transparent;
+    outline: 2px solid #fff;
+}
+
+.input-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: none;
+    color: white;
+    transform: translate(10px, 10px);
+    transition: transform .25s;
+}
+
+.input:focus+.input-label,
+.input:valid+.input-label {
+    transform: translate(10px, -14px) scale(.8);
+    color: white;
+    padding-inline: inherit;
+    background-color: #242329;
+}
+
+.input:is(:focus, :valid) {
+    outline-color: #d1c5fc;
+    box-shadow: 3px 3px 2px white, -3px -3px 2px #fff;
+}
+
+.login,
+.submit,
+.g2submit,
+.signUp {
+    background-color: transparent;
+    position: relative;
+    height: 50px;
+    width: 150px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 2px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px white;
+}
+
+.login:hover,
+.submit:hover,
+.g2submit:hover,
+.signUp:hover {
+    background-color: rgb(46, 46, 46);
+}
+
+.login::before,
+.submit::before,
+.g2submit::before,
+.signUp::before {
+    content: '';
+    position: absolute;
+    background-color: #195190FF;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+    height: 0px;
+    width: 0px;
+    border-radius: 50%;
+    transition: all 0.5s linear;
+}
+
+.login:hover::before,
+.submit:hover::before,
+.g2submit:hover::before,
+.signUp:hover::before {
+    height: 350px;
+    width: 350px;
+}
+
+.login::after {
+    content: 'Login';
+    position: relative;
+    z-index: 1;
+}
+
+.submit::after {
+    content: 'Submit';
+    position: relative;
+    z-index: 1;
+}
+
+.g2submit::after {
+    content: 'G2 PAGE';
+    position: relative;
+    z-index: 1;
+}
+
+.signUp::after {
+    content: 'Sign Up';
+    position: relative;
+    z-index: 1;
+}
+
+.login-flex,
+.signup-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border-color: #fff;
+    margin: 0ch;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* padding: 2rem; */
+}
+
+.f-uname,
+.f-password,
+.f-login,
+.item-1,
+.item-2 {
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+}
+
+.user-type {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+}
+
+.user-type>.forLabel>.label {
+    color: white;
+}
+
+.user-type>.selection {
+    background-color: black;
+    color: #fff;
+    overflow: auto;
+}
+
+.date-piker {
+    display: flex;
+    flex-direction: row;
+}
+
+.date-label {
+    font-size: large;
+    color: rgb(255, 255, 255);
+    margin: 15px;
+}
+
+.fillup-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.f-submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .fillup-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+}
+
+.login-flex b,
+.signup-flex b {
+    color: #fff;
+}
+
+.login-flex,
+.signup-flex {
+    padding: 8rem;
+    background-color: rgb(39, 34, 34);
+    border: 2px solid;
+    border-radius: 50px;
+    border-color: #fff;
+}

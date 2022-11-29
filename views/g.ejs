@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Replace with ejs -->
+<%- include('layouts/header'); -%>
+
+<body>
+    <!-- Navigation-->
+    <!-- Replace with ejs -->
+    <%- include('layouts/nav'); -%>
+    <!-- Page Header-->
+    
+    <header class="masthead" style="background-image: url('assets/img/G-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h1>G License</h1>
+                        <span class="subheading">This is G License Page.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content-->
+    <hr/>
+    <main>
+        
+
+        <!-- <h1><% if (data != null ) { %> True
+                        False - <%=data.isempty%>
+                        <% } %> -->
+                <% if(data != null ) {%>
+                </h1>
+                    <% if(data.message == null ) {%>
+                        <div class="offset-3 col-6">
+                            <form method="POST" action="/updateData">
+                                <h4 class="mb-5 text-center fs-2 text-black">Personal Information</h4>
+                                <div class="row g-3">
+                                    <input id="id" name="id" type="hidden" value=<%= data._id %>>
+                                    <div class="col-sm-6">
+                                        <label for="firstName" class="form-label text-black">First name</label>
+                                        <input type="text" class="form-control" id="fName" name="firstName" disabled value=<%=data.fName%>>
+                                    </div>
+                    
+                                    <div class="col-sm-6">
+                                        <label for="lastName" class="form-label text-black">Last name</label>
+                                        <input type="text" class="form-control" id="lName" name="lastName" disabled value=<%=data.lName%>>
+                                    </div>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <label for="licenceNumber" class="form-label text-black">Licence Number</label>
+                                        <input type="text" class="form-control" id="lNumber" name="licenceNumber" disabled value=<%=data.lNumber%>>
+                                        
+                                    </div> 
+                                    
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <label for="age" class="form-label text-black">Age</label>
+                                        <input type="text" class="form-control" id="age" name="age" disabled value=<%=data.age%>>
+                                        <div class="invalid-feedback">
+                                            Valid first name is required.
+                                        </div>
+                                    </div>
+                    
+                                    <!-- <div class="col-sm-6">
+                                        <label for="dateOfBirth" class="form-label text-black">Date Of Birth</label>
+                                        <input type="text" class="form-control" id="dob" name="dateOfBirth" disabled value=<=data.dob%>>
+                                    </div> -->
+                                    
+                                </div>
+                                <br><br>
+                                <h4 class="mb-5 text-center fs-2 text-black">Car Information</h4>
+                                <div class="row g-3">
+                                    <div class="col-sm-4">
+                                        <label for="make" class="form-label text-black">Make</label>
+                                        <input type="text" class="form-control" id="make" name="make" value="<%= data.carDetails.make %>">
+                                        
+                                    </div>
+                    
+                                    <div class="col-sm-4">
+                                        <label for="model" class="form-label text-black">Model</label>
+                                        <input type="text" class="form-control" id="model" name="model" value="<%= data.carDetails.model %>">
+                                        
+                                    </div>
+            
+                                    <div class="col-sm-4">
+                                        <label for="year" class="form-label text-black">Year</label>
+                                        <input type="text" class="form-control" id="year" name="year" value="<%= data.carDetails.year %>">
+                                        
+                                    </div>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-sm-8">
+                                        <label for="plateNo" class="form-label text-black">Plate number</label>
+                                        <input type="text" class="form-control" id="plateNo" name="plateNo" value="<%= data.carDetails.plateNo %>">
+                                        
+                                    </div>
+                                </div>
+                                <div class="f-submit">
+                                    <button class="submit" type="submit" style="margin-top:50px"></button>
+                                </div>
+                            </form>
+                        </div> 
+                    <%} else {%>
+                        
+                        <div class="offset-3 col-6">
+                            <form method="GET" action="/g2">
+                                
+                                <div class="row g-3 text-center p-5">
+                                    <div class="col-sm-12">
+                                        <h5 class="mb-5 text-center fs-4 text-black">No licenceNumber found</h5>
+                                        <!-- <button class="btn btn-primary text-uppercase" id="submitButton" name="submitButton" type="submit">G2 Page</button> -->
+                                        <div class="g2-submit">
+                                            <button class="g2submit" type="submit" style="margin-top:50px"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div> 
+
+                    <%}}%>
+
+
+
+
+
+            </div>
+    </main>
+
+    
+    <!-- Footer-->
+    <%- include('layouts/footer'); -%>
+    <!-- Replace with ejs -->
+
+    <!-- Bootstrap core JS-->
+    <%- include('layouts/scripts'); -%>
+    <!-- Replace with ejs -->
+</body>
+</body>
+
+</html>

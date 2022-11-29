@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Replace with ejs -->
+<%- include('layouts/header'); -%>
+
+<body>
+    <!-- Navigation-->
+    <!-- Replace with ejs -->
+    <%- include('layouts/nav'); -%>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/G-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Test Your Drive</h1>
+                        <h2 class="subheading">SignUp Page</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <hr/>
+    <main>
+        <form action="/storeUser" method="POST">
+            <% if(global.eMsg != null ) {%>
+                <div class="form-floating">
+                    <p style="color: red; text-align: center;"><%=global.eMsg%></p>
+                    <%=global.eMsg = null%>
+                </div>
+            <%}%>
+            <div class="signup-flex">
+                <b>Sign Up</b>
+                <div class="logo">
+                    <p></p>
+                </div>
+            
+                <div class="f-uname">
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" required class="input">
+                        <label for="username" class="input-label">Username</label>
+                    </div>
+                </div>
+            <div class="f-password">
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" required class="input">
+                        <label for="password" class="input-label">Password</label>
+                    </div>
+            </div>
+            <div class="f-password">
+                <div class="input-group">
+                    <input type="password" id="r_password" name="r_password" required class="input">
+                    <label for="r_password" class="input-label">Re-Enter Password</label>
+                </div>
+            </div>
+            <div class="user-type">
+                <div class="forLabel">
+                <label for="userType" class="label">Choose a User Type:</label>
+                </div>
+                <div class="forSelection">
+                    <select name="userType" id="userType" class="selection">
+                            <option value="admin">Admin</option>
+                            <option value="examiner">Examiner</option>
+                            <option value="driver">Driver</option>
+                    </select>
+                </div>
+            </div>
+            <div class="f-signUp">
+                    <button class="signUp" type="submit"></button>
+            </div>     
+            </div>
+        </form>
+    </main>
+    
+   <!-- Footer-->
+   <%- include('layouts/footer'); -%>
+   <!-- Replace with ejs -->
+
+   <!-- Bootstrap core JS-->
+   <%- include('layouts/scripts'); -%>
+   <!-- Replace with ejs -->
+</body>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Replace with ejs -->
+<%- include('layouts/header'); -%>
+
+<body>
+    <!-- Navigation-->
+    <!-- Replace with ejs -->
+    <%- include('layouts/nav'); -%>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/G-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Test Your Drive</h1>
+                        <h2 class="subheading">Login Page</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <hr/>
+    <main>
+        <form action="users/login" method="post">
+            <div class="login-flex">
+                <b>LOGIN</b>
+                <div class="logo">
+                    <p></p>
+                </div>
+
+                <div class="f-uname">
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" required class="input">
+                        <label for="Username" class="input-label">Username</label>
+                    </div>
+                </div>
+            <div class="f-password">
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" required class="input">
+                        <label for="Password" class="input-label">Password</label>
+                    </div>
+            </div>
+            <div class="f-login">
+                    <button class="login"></button>
+            </div>
+            </div>
+        </form>
+    </main>
+    
+   <!-- Footer-->
+   <%- include('layouts/footer'); -%>
+   <!-- Replace with ejs -->
+
+   <!-- Bootstrap core JS-->
+   <%- include('layouts/scripts'); -%>
+   <!-- Replace with ejs -->
+</body>
+</body>
+
+</html>
