@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
         password: req.body.password,
         userType: req.body.userType,
       });
-      req.session.userId = account._id;
+      // req.session.userId = account._id;
       global.eMsg = null;
     }
   } catch (error) {
