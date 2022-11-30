@@ -7,6 +7,7 @@ const path = require("path");
 const route = express.Router();
 const ejs = require("ejs");
 const expressSession = require("express-session");
+const mongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
 const Data = require("./model/model");
 const user = require("./model/user");
@@ -43,7 +44,10 @@ global.loggedIn = null;
 global.isInfoProvided = false;
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(expressSession({ secret: "patel495" }));
+app.use(expressSession({
+  secret: "patel495",
+  store: mongoStore.create({ mongoUrl: process.env.MONGO_URL }),
+}));
 var router = express.Router();
 
 const port = 4000;
