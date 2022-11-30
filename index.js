@@ -7,6 +7,7 @@ const path = require("path");
 const route = express.Router();
 const ejs = require("ejs");
 const expressSession = require("express-session");
+const flash = require("connect-flash");
 const mongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
 const Data = require("./model/model");
@@ -38,6 +39,7 @@ const getAppointmentDriverController = require("./controllers/getAppointmentDriv
 const logout = require("./controllers/logout");
 
 app.set("view engine", "ejs");
+app.use(flash());
 
 global.eMsg = null;
 global.loggedIn = null;
