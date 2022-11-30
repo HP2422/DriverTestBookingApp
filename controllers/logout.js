@@ -4,5 +4,5 @@ module.exports = async (req, res) => {
     global.userType = null;
     req.session.userId = null;
     console.log("Logout Controller called.");
-    res.render("login");
+    req.session.destroy(() => res.redirect("/"));
 };
