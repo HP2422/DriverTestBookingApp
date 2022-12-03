@@ -11,14 +11,21 @@ module.exports = (req, res) => {
     if (user) {
       bcrypt.compare(password, user.password, (error, same) => {
         if (same) {
-          global.userType = user.userType;
           req.session.userId = user._id;
-          global.isInfoProvided =
-            user.lNumber != null && user.lNumber != "default";
+          req.session.userType = user.userType;
+          console.log("Passwords match");
+
+          // global.userType = user.userType;
+          // global.isInfoProvided =
+          //   user.lNumber != null && user.lNumber != "default";
+
           res.redirect("/");
           // If the username and password is available.
         } else {
-          global.isAdmin = false;
+          console.log("Passwords don't match");
+
+          // global.isAdmin = false;
+
           res.redirect("/login");
           // If the user is Admin.
         }

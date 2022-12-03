@@ -38,21 +38,37 @@ const getAppointmentDriverController = require("./controllers/getAppointmentDriv
 
 const logout = require("./controllers/logout");
 
-app.set("view engine", "ejs");
 app.use(flash());
+app.set("view engine", "ejs");
+
 
 global.eMsg = null;
 global.loggedIn = null;
+global.userType = null;
 global.isInfoProvided = false;
+
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(expressSession({
   secret: "patel495",
+  resave: false,
+  saveUninitialized: true,
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URL }),
 }));
-var router = express.Router();
 
-const port = 4000;
+app.use("*", (req, res, next) => {
+  console.log("* CALLED");
+  loggedIn = req.session.userId;
+  userType = req.session.userType;
+  console.log(loggedIn);
+  console.log(userType);
+  next();
+});
+
+
+var router = express.Router();
+1
+const port = 4001;
 
 const connectDB = async () => {
   try {
@@ -72,7 +88,7 @@ app.get("/g", authMiddleware, g);
 
 app.get("/g2", authMiddleware, g2);
 
-app.get("/login", login);
+app.get("/login", redirectIfAuthenticated, login);
 app.post("/users/login", redirectIfAuthenticated, userLogin);
 app.get("/signup", redirectIfAuthenticated, signup);
 app.post("/storeUser", redirectIfAuthenticated, storeUser);

@@ -9,25 +9,24 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
-                <% if(global.userType == "driver"){%>
-                    <li class="nav-item"><a class="nav-link" href="g2">G2 Test</a></li>
-                    <li class="nav-item"><a class="nav-link" href="g">G Test</a></li>
-                <% } %>
+                <% if(loggedIn){ %>
+                    <% if(global.userType == "driver"){%>
+                        <li class="nav-item"><a class="nav-link" href="g2">G2 Test</a></li>
+                        <li class="nav-item"><a class="nav-link" href="g">G Test</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+                    <% } %>
 
-                <% if(global.userType == "admin"){%>
-                    <li class="nav-item"><a class="nav-link" href="appointment">Appointment</a></li>
-                <% } %>
+                    <% if(global.userType == "admin"){%>
+                        <li class="nav-item"><a class="nav-link" href="appointment">Appointment</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+                    <% } %>
 
-                <% if(global.userType == null){%>
+                <% } %>
+                
+                <% if(!loggedIn){ %>
                 <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="signup">Sign up</a></li>
-                <% } else {%>
-                    <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
                 <% } %>
-
-                
-
-
             </ul>
         </div>
     </div>
