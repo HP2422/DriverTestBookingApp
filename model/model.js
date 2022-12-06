@@ -17,10 +17,10 @@ const allData = new Schema({
   appointmentId: { type: String, default: null },
   // dob: { type: Date, default: new Date() },
   carDetails: {
-    make: { type: String, default: "1980" },
-    model: { type: String, default: "BMW" },
-    year: { type: String, default: "1998" },
-    plateNo: { type: String, default: "HPATEL" },
+    make: { type: String, default: "TOYOTA" },
+    model: { type: String, default: "CAMRY" },
+    year: { type: Number, default: "2020" },
+    plateNo: { type: String, default: "patel495patel004" },
   },
 });
 

@@ -1,12 +1,18 @@
 const model = require("../model/model");
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
   console.log("AuthMiddleware is called.");
-  console.log("Check the Session Id" + req.session.userId);
-  if (!req.session.userId) return res.redirect("/login");
-  model.findById(req.session.userId, (error, user) => {
+  await model.findById(req.session.userId, (error, user) => {
+    console.log("INSIDE");
+    if (!req.session.userId) return res.redirect("/login");
+    if (req.session.userType == "admin") {
+      return res.redirect("/");
+    }
+    if (req.session.userType == "examiner") {
+      return res.redirect("/")
+    }
     if (error || !user) return res.redirect("/signup");
-  });
+  }).clone();
 
   next();
 };

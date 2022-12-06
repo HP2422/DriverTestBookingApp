@@ -36,6 +36,9 @@ const getAppointmentAdminController = require("./controllers/getAppointmentAdmin
 const createAppointmentsController = require("./controllers/createAppointments");
 const getAppointmentDriverController = require("./controllers/getAppointmentDriver");
 
+const authMiddleware_examiner = require("./middleware/authMiddleware_examiner");
+const examinerController = require("./controllers/examiner");
+
 const logout = require("./controllers/logout");
 
 app.use(flash());
@@ -50,7 +53,9 @@ global.isInfoProvided = false;
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(expressSession({
-  secret: "patel495",
+  secret: "patel495patel004",
+  // "Harshkumar Narayanbhai Patel / Student Number :- 8805495 " 
+  // "Jayshriben Gauravkumar Patel / Student Number :- 8817004 " 
   resave: false,
   saveUninitialized: true,
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URL }),
@@ -60,8 +65,6 @@ app.use("*", (req, res, next) => {
   console.log("* CALLED");
   loggedIn = req.session.userId;
   userType = req.session.userType;
-  console.log(loggedIn);
-  console.log(userType);
   next();
 });
 
@@ -84,9 +87,8 @@ connectDB();
 
 app.get("/", home);
 
-app.get("/g", authMiddleware, g);
-
 app.get("/g2", authMiddleware, g2);
+app.get("/g", authMiddleware, g);
 
 app.get("/login", redirectIfAuthenticated, login);
 app.post("/users/login", redirectIfAuthenticated, userLogin);
@@ -99,7 +101,7 @@ app.get("/logout", logout);
 app.post("/g2/addData", authMiddleware, addData);
 
 // Fetch the data function.
-app.post("/getData", getData);
+app.post("/getData", authMiddleware, getData);
 
 // Update the Data.
 app.post("/updateData", authMiddleware, updateData);
@@ -113,6 +115,8 @@ app.get("/getAppointmentAdmin", authMiddleware_admin, getAppointmentAdminControl
 
 app.get("/getAppointmentDriver", authMiddleware, getAppointmentDriverController);
 
+app.get("/examiner", authMiddleware_examiner, examinerController);
+
 //For public folder access.
 app.use(express.static("public"));
 
@@ -120,14 +124,14 @@ app.listen(port, () => {
   console.log("Server is listening on " + port);
 });
 
-app.use("*", (req, res, next) => {
-  if (req.session) {
-    loggedIn = req.session.userId;
-  } else {
-    loggedIn = req.session?.userId;
-  }
-  next();
-});
+// app.use("*", (req, res, next) => {
+//   if (req.session) {
+//     loggedIn = req.session.userId;
+//   } else {
+//     loggedIn = req.session?.userId;
+//   }
+//   next();
+// });
 
 app.use((req, res) => res.render("notFound"));
 // COMPLETED

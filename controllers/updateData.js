@@ -3,6 +3,9 @@ const availableAppointmentsSchema = require("../model/appointments");
 
 module.exports = async (req, res) => {
   console.log("Update Data is called." + req.session.userId);
+  console.log("BODY");
+  console.log(req.body.body);
+  console.log("BODY");
   console.log(req.body._id);
   console.log({ req });
 
