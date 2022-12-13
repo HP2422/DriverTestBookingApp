@@ -6,31 +6,7 @@
 
 <body>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  	<script>
-     function sendData(e){
-      
-      fetch('testType',{
-        method:'POST',
-        headers:{'content-Type':'application/json'},
-        body:JSON.stringify({payload:e.value})
-        })
-        .then(function (response) {
-        responseClone = response.clone(); // 2
-        return response.json();
-        })
-        .then(function (data) {
-        let payload =data.payload;
-        console.log("payload");
-        console.log(data);
-        console.log("payload");
-        })
-        }
-    </script>
-    <script>
-    doEdit = function(id){
-      location="/"+id;
-    }
-    </script>
+  	
     <!-- Navigation-->
     
     <!-- Replace with ejs -->
@@ -52,7 +28,7 @@
     <!-- Main Content-->
     <hr/>
     <main>
-        <input type="text" id="search-box" onkeyup="sendData(this)">
+       
         <table class="styled-table">
             <thead>
               <tr>
@@ -60,7 +36,7 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Test Type</th>
-                <th>Details</th>
+                <th>Test Status</th>
               </tr>
             </thead>
             <tbody>
@@ -71,11 +47,11 @@
                 <td><%= data[i].date%></td>
                 <td><%= data[i].time%></td>
                 <td><%= data[i].testType%></td>
-                <td><button onclick="doEdit('<%= data[i]._id %>')" >Update Info</button></td>
+                <td><%= data[i].result%></td>
               </tr>
               <% } }else{ %>
               <tr>
-                <td colspan="4">No driver is ready for any drive test.</td>
+                <td colspan="4">No result is available</td>
               </tr>
               <% } %>
             </tbody>

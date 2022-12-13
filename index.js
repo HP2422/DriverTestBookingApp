@@ -33,11 +33,24 @@ const authMiddleware_admin = require("./middleware/authMiddleware_admin");
 
 const appointment = require("./controllers/appointment");
 const getAppointmentAdminController = require("./controllers/getAppointmentAdmin");
+const seeResultAdminController = require("./controllers/seeResultAdminController");
+
 const createAppointmentsController = require("./controllers/createAppointments");
 const getAppointmentDriverController = require("./controllers/getAppointmentDriver");
+const getAppointmentDriver_g_Controller = require("./controllers/getAppointmentDriver_g");
+const seeResultController = require("./controllers/seeResultController");
+
 
 const authMiddleware_examiner = require("./middleware/authMiddleware_examiner");
 const examinerController = require("./controllers/examiner");
+const examinerSearchController = require("./controllers/examinerSearchController");
+
+const examineEditController = require("./controllers/examineEditController");
+const updateResultController = require("./controllers/updateResultController");
+
+
+
+// const examineEditPageController = require("./controllers/examineEditPageController");
 
 const logout = require("./controllers/logout");
 
@@ -89,6 +102,7 @@ app.get("/", home);
 
 app.get("/g2", authMiddleware, g2);
 app.get("/g", authMiddleware, g);
+app.get("/seeResult", authMiddleware, seeResultController);
 
 app.get("/login", redirectIfAuthenticated, login);
 app.post("/users/login", redirectIfAuthenticated, userLogin);
@@ -112,13 +126,22 @@ app.get("/appointment", authMiddleware_admin, appointment);
 app.post("/createAppointments", authMiddleware_admin, createAppointmentsController);
 
 app.get("/getAppointmentAdmin", authMiddleware_admin, getAppointmentAdminController);
+app.get("/seeResultAdmin", authMiddleware_admin, seeResultAdminController);
+
 
 app.get("/getAppointmentDriver", authMiddleware, getAppointmentDriverController);
+app.get("/getAppointmentDriver_g", authMiddleware, getAppointmentDriver_g_Controller);
 
 app.get("/examiner", authMiddleware_examiner, examinerController);
+app.post('/testType', authMiddleware_examiner, examinerSearchController);
 
+app.get('/:id', authMiddleware_examiner, examineEditController);
+// app.get('/examiner-edit', authMiddleware_examiner, examineEditPageController);
 //For public folder access.
+
+app.post('/updateResult', authMiddleware_examiner, updateResultController);
 app.use(express.static("public"));
+
 
 app.listen(port, () => {
   console.log("Server is listening on " + port);

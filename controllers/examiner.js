@@ -8,6 +8,13 @@ module.exports = async (req, res) => {
     const key = "date";
     const value = "";
     const fmodels = models.filter(d => d[key] != null);
-    console.log(fmodels);
-    res.render('examiner');
+
+    if (fmodels.length) {
+        for (var i = 0; i < fmodels.length; i++) {
+            console.log(fmodels[i].username);
+            console.log(fmodels[i].date);
+        }
+    }
+
+    res.render('examiner', { data: fmodels });
 };

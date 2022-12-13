@@ -3,11 +3,11 @@ const availableAppointmentsSchema = require("../model/appointments");
 
 module.exports = async (req, res) => {
   console.log("Update Data is called." + req.session.userId);
-  console.log("BODY");
-  console.log(req.body.body);
-  console.log("BODY");
-  console.log(req.body._id);
-  console.log({ req });
+  // console.log("BODY");
+  // console.log(req.body.time);
+  // console.log("BODY");
+  // console.log(req.body.date);
+  // console.log({ req });
 
   const appointment = await availableAppointmentsSchema.findOneAndUpdate(
     { time: req.body.time, date: req.body.date },
@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
       isTimeSlotAvailable: false,
     }
   );
-
+  console.log(...req.body.testType);
   await Data.findOneAndUpdate(
     { _id: req.session.userId },
     {

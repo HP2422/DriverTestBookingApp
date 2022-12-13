@@ -13,8 +13,11 @@ const allData = new Schema({
   lNumber: { type: String, unique: true, default: "DFGHJKL" },
   date: { type: String, default: null },
   time: { type: String, default: null },
+  testType: { type: String, default: null },
   firstTime: { type: Boolean, default: true },
   appointmentId: { type: String, default: null },
+  comment: { type: String, default: null },
+  result: Boolean,
   // dob: { type: Date, default: new Date() },
   carDetails: {
     make: { type: String, default: "TOYOTA" },

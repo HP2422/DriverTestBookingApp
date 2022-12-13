@@ -4,5 +4,6 @@ module.exports = async (req, res) => {
   // res.sendFile(path.resolve(__dirname, "pages/g.html"));
   const data = await Data.findOne({ _id: req.session.userId });
   console.log({ data });
-  res.render("g", { data });
+  const appointment = null;
+  res.render("g", { appointment: appointment, data: data });
 };

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Replace with ejs -->
+<%- include('layouts/header'); -%>
+
+<body>
+    <!-- Navigation-->
+    
+    <!-- Replace with ejs -->
+    <%- include('layouts/nav'); -%>
+    
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/dashboard-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Test Your Drive</h1>
+                        <span class="subheading">YOUR RESULT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content-->
+    <hr/>
+    <main>
+        <% if(data.comment != null){%>
+            <h4 class="mb-5 text-center fs-2 text-black">Personal Information</h4>
+                                <div class="row g-3">
+                                    <input id="id" name="id" type="hidden" value=<%= data._id %>>
+                                    <div class="col-sm-6">
+                                        <label for="firstName" class="form-label text-black">First name</label>
+                                        <input type="text" class="form-control" id="fName" name="firstName" disabled value=<%=data.fName%>>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="comment" class="form-label text-black">Comment</label>
+                                    <input type="text" class="form-control" id="comment" name="comment" disabled value=<%=data.comment%>>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="result" class="form-label text-black">Result</label>
+                                    <input type="text" class="form-control" id="result" name="result" disabled value=<%=result%>>
+                                </div>
+                                <% } else{ %> 
+                                    <h4 class="mb-5 text-center fs-2 text-black">You did not gave any exams.</h4>
+                                    <% } %> 
+
+    </main>
+     <!-- Footer-->
+     <%- include('layouts/footer'); -%>
+     <!-- Replace with ejs -->
+
+     <!-- Bootstrap core JS-->
+     <%- include('layouts/scripts'); -%>
+     <!-- Replace with ejs -->
+</body>
+
+</html>

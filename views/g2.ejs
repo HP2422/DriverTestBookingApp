@@ -3,24 +3,7 @@
 
 <!-- Replace with ejs -->
 <%- include('layouts/header'); -%>
-<script>
-  async function callApi() {
-    console.log("this");
-    console.log(this);
-    console.log("this");
-    const rawResponse = await fetch('http://localhost:4001/updateData', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: this
-  });
-  const content = await rawResponse.json();
 
-  console.log(content);
-  }
-  </script>
 <body>
     <!-- Navigation-->
     <!-- Replace with ejs -->
@@ -114,7 +97,7 @@
               </div>
               <div class="item-2">
                   <div class="input-group">
-                      <input type="number" id="year" name="year"  class="input">
+                      <input type="text" id="year" name="year"  class="input">
                       <label for="year" class="input-label">Year</label>
                   </div>
               </div>
@@ -129,16 +112,20 @@
             <h3 class="mb-5 text-center fs-2 text-black">Appointment Booking</h3>
             <div>
               <%if(appointment != null){%>
-              <div>
-                <label for="date" class="form-label">Date</label>
+              <div class="col-sm-6">
+                <label for="date" class="form-label text-black">Date</label>
                 <input readonly type="text" id="date" name="date" value="<%= date %>"
                   min="<%=new Date().toISOString().split('T')[0]%>"
-                onselect="callApi(this)"
-                  />
-
+                />
               </div>
               <div>
-                  <label for="time" class="form-label">Time</label>
+                <div class="col-sm-6">
+                  <label for="testType" class="form-label text-black">Test Type</label>
+                  <input type="text" class="form-control" id="testType" name="testType" readonly value="G2 TEST">
+              </div>
+              <div class="col-sm-6">
+                  <label for="time" class="form-label text-black">Time</label>
+                </div>
                   <%if(appointment != ""){%>
                   <select id="time" class="form-control mt-2" name="time">
                     <% for(let i = 0;i<appointment.length;i++){%>
