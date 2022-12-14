@@ -10,5 +10,6 @@ module.exports = async (req, res) => {
     } else {
         var result = "FAIL";
     }
+    console.log(models.comment);
     res.render('seeResult', { data: models, result: result });
 };

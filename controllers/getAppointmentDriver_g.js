@@ -21,5 +21,12 @@ module.exports = async (req, res) => {
         if (availApntArray[i].isTimeSlotAvailable)
             appointment.push(availApntArray[i].time);
     }
-    res.render("g", { appointment: appointment, date: date, data: req.query });
+
+
+    const models = await Data.findOne({ _id: loggedIn });
+    console.log("models");
+    console.log(models.fName);
+    console.log("models");
+    let toEntercarDetail = { ...req.query, fName: models.fName, lName: models.lName, lNumber: models.lNumber, age: models.age }
+    res.render("g", { appointment: appointment, date: date, data: toEntercarDetail });
 };

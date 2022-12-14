@@ -47,7 +47,11 @@
                 <td><%= data[i].date%></td>
                 <td><%= data[i].time%></td>
                 <td><%= data[i].testType%></td>
-                <td><%= data[i].result%></td>
+                <td><% if (data[i].result) { %>
+                  PASS
+                <% } else { %>
+                  FAIL
+                <% } %></td>
               </tr>
               <% } }else{ %>
               <tr>

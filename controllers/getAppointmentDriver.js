@@ -21,5 +21,6 @@ module.exports = async (req, res) => {
         if (availApntArray[i].isTimeSlotAvailable)
             appointment.push(availApntArray[i].time);
     }
+    console.log('suman', req.query)
     res.render("g2", { appointment: appointment, date: date, data: req.query });
 };
