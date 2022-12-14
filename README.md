@@ -1,12 +1,7 @@
-# Assignment1_FullstackProgramming
+Assignement 1, Assignement 2, Assignement 3 and Assignement 4.
+Gropu Project.
 
-
-Assignment 1 and Assignment 2
-- Design
-- Add, Fetch and Update data into the monogodb atlas.
-
-
-* Work is in progress for assignment 3.
+All functinality is working properly as per the instructions.
 
 Thank You.
 
