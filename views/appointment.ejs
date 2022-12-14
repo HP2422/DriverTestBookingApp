@@ -30,7 +30,7 @@
                   <div>
                     <% if(appointment != null){%>
                     <form action="/createAppointments" method="POST">
-                        <label for="date" class="form-label text-black">DATE</label>
+                        <label for="date" class="form-label text-white">DATE</label>
                       <input readonly type="text" class="form-control"  id="date" name="date" value="<%= date %>"
                         min="<%=new Date().toISOString().split('T')[0]%>"
                       />
@@ -38,7 +38,7 @@
                       <%} else{%>
                         <form action="/getAppointmentAdmin" method="GET">
                     <div class="col-md-12 text-center mt-5">
-                        <label for="date" class="form-label text-black">DATE</label>
+                        <label for="date" class="form-label text-white">DATE</label>
                       <input type="date" class="form-label" id="date" name="date" required
                         min="<%=new Date().toISOString().split('T')[0]%>"
                       />
@@ -52,8 +52,8 @@
                       </div>
                       <% } else {
                         var timeslots = ["8:00","8:30","9:00","9:30","10:00","10:30","11:00","11:30","12:00","12:30","1:00","1:30","2:00","2:30","3:00","3:30","4:00"]%>
-                        <label for="time" class="form-label text-black">Time</label>
-                          <select id="time" class="form-label text-black" name="time">
+                        <label for="time" class="form-label text-white">Time</label>
+                          <select id="time" class="form-label text-white" name="time">
                             <% for(let i = 0;i<timeslots.length;i++){ 
                                 if(appointment.includes(timeslots[i])){
                                   %>

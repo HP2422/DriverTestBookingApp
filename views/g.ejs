@@ -43,18 +43,18 @@
                                 <div class="row g-3">
                                     <input id="id" name="id" type="hidden" value=<%= data._id %>>
                                     <div class="col-sm-6">
-                                        <label for="firstName" class="form-label text-black">First name</label>
+                                        <label for="firstName" class="form-label text-white">First name</label>
                                         <input type="text" class="form-control" id="fName" name="firstName" disabled value=<%=data.fName%>>
                                     </div>
                     
                                     <div class="col-sm-6">
-                                        <label for="lastName" class="form-label text-black">Last name</label>
+                                        <label for="lastName" class="form-label text-white">Last name</label>
                                         <input type="text" class="form-control" id="lName" name="lastName" disabled value=<%=data.lName%>>
                                     </div>
                                 </div>
                                 <div class="row g-3">
                                     <div class="col-sm-6">
-                                        <label for="licenceNumber" class="form-label text-black">Licence Number</label>
+                                        <label for="licenceNumber" class="form-label text-white">Licence Number</label>
                                         <input type="text" class="form-control" id="lNumber" name="licenceNumber" disabled value=<%=data.lNumber%>>
                                         
                                     </div> 
@@ -62,12 +62,12 @@
                                 </div>
                                 <div class="row g-3">
                                     <div class="col-sm-6">
-                                        <label for="age" class="form-label text-black">Age</label>
+                                        <label for="age" class="form-label text-white">Age</label>
                                         <input type="number" class="form-control" id="age" name="age" disabled value=<%=data.age%>>
                                     </div>
                     
                                     <!-- <div class="col-sm-6">
-                                        <label for="dateOfBirth" class="form-label text-black">Date Of Birth</label>
+                                        <label for="dateOfBirth" class="form-label text-white">Date Of Birth</label>
                                         <input type="text" class="form-control" id="dob" name="dateOfBirth" disabled value=<=data.dob%>>
                                     </div> -->
                                     
@@ -76,25 +76,25 @@
                                 <h4 class="mb-5 text-center fs-2 text-black">Car Information</h4>
                                 <div class="row g-3">
                                     <div class="col-sm-4">
-                                        <label for="make" class="form-label text-black">Make</label>
+                                        <label for="make" class="form-label text-white">Make</label>
                                         <input type="text" class="form-control" id="make" name="make" value=<%=data?.carDetails?.make|| data?.make%>>
                                     </div>
                     
                                     <div class="col-sm-4">
-                                        <label for="model" class="form-label text-black">Model</label>
+                                        <label for="model" class="form-label text-white">Model</label>
                                         <input type="text" class="form-control" id="model" name="model" value=<%=data?.carDetails?.model || data?.model%>>
                                         
                                     </div>
             
                                     <div class="col-sm-4">
-                                        <label for="year" class="form-label text-black">Year</label>
+                                        <label for="year" class="form-label text-white">Year</label>
                                         <input type="number" class="form-control" id="year" name="year" value=<%=data?.carDetails?.year || data?.year%>>
                                         
                                     </div>
                                 </div>
                                 <div class="row g-3">
                                     <div class="col-sm-8">
-                                        <label for="plateNo" class="form-label text-black">Plate number</label>
+                                        <label for="plateNo" class="form-label text-white">Plate number</label>
                                         <input type="text" class="form-control" id="plateNo" name="plateNo" value=<%=data?.carDetails?.plateNo || data?.plateNo%>>
                                         
                                     </div>
@@ -103,18 +103,18 @@
             <div>
               <%if(appointment != null){%>
               <div class="col-sm-6">
-                <label for="date" class="form-label text-black">Date</label>
+                <label for="date" class="form-label text-white">Date</label>
                 <input readonly type="text" id="date" name="date" value="<%= date %>"
                   min="<%=new Date().toISOString().split('T')[0]%>"
                 />
               </div>
               <div>
                 <div class="col-sm-6">
-                  <label for="testType" class="form-label text-black">Test Type</label>
+                  <label for="testType" class="form-label text-white">Test Type</label>
                   <input type="text" class="form-control" id="testType" name="testType" readonly value="G TEST">
               </div>
               <div class="col-sm-6">
-                  <label for="time" class="form-label text-black">Time</label>
+                  <label for="time" class="form-label text-white">Time</label>
                 </div>
                   <%if(appointment != ""){%>
                   <select id="time" class="form-control mt-2" name="time">
@@ -131,7 +131,7 @@
               </div>
                 <%} else{%>
               <div>
-                <label for="date"  class="form-label text-black">Date</label>
+                <label for="date"  class="form-label text-white">Date</label>
                 <input type="date"  id="date" name="date"
                   min="<%=new Date().toISOString().split('T')[0]%>"
                 />

@@ -113,18 +113,18 @@
             <div>
               <%if(appointment != null){%>
               <div class="col-sm-6">
-                <label for="date" class="form-label text-black">Date</label>
+                <label for="date" class="form-label text-white">Date</label>
                 <input readonly type="text" id="date" name="date" value="<%= date %>"
                   min="<%=new Date().toISOString().split('T')[0]%>"
                 />
               </div>
               <div>
                 <div class="col-sm-6">
-                  <label for="testType" class="form-label text-black">Test Type</label>
+                  <label for="testType" class="form-label text-white">Test Type</label>
                   <input type="text" class="form-control" id="testType" name="testType" readonly value="G2 TEST">
               </div>
               <div class="col-sm-6">
-                  <label for="time" class="form-label text-black">Time</label>
+                  <label for="time" class="form-label text-white">Time</label>
                 </div>
                   <%if(appointment != ""){%>
                   <select id="time" class="form-control mt-2" name="time">
@@ -141,7 +141,7 @@
               </div>
                 <%} else{%>
               <div>
-                <label for="date"  class="form-label text-black">Date</label>
+                <label for="date"  class="form-label text-white">Date</label>
                 <input type="date"  id="date" name="date"
                   min="<%=new Date().toISOString().split('T')[0]%>"
                 />
