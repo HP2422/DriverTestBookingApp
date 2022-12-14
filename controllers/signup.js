@@ -1,4 +1,4 @@
 module.exports = (req, res) => {
-    console.log("Sign Up is Called.");
+    console.log("SignUp Page ( Controller ) is called.");
     res.render("signup");
 };

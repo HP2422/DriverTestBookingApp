@@ -1,6 +1,6 @@
 const Data = require('../model/model');
 module.exports = async (req, res) => {
-    console.log("Get Data is Called.");
+    console.log("getData ( Controller ) is called.");
     console.log(req.body.lNumber);
     let data = "";
     try {

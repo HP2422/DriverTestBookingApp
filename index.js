@@ -48,7 +48,7 @@ const examinerSearchController = require("./controllers/examinerSearchController
 const examineEditController = require("./controllers/examineEditController");
 const updateResultController = require("./controllers/updateResultController");
 
-
+const showSearchDataController = require("./controllers/showSearchDataController");
 
 // const examineEditPageController = require("./controllers/examineEditPageController");
 
@@ -83,7 +83,6 @@ app.use("*", (req, res, next) => {
 
 
 var router = express.Router();
-1
 const port = 4001;
 
 const connectDB = async () => {
@@ -137,9 +136,10 @@ app.post('/testType', authMiddleware_examiner, examinerSearchController);
 
 app.get('/:id', authMiddleware_examiner, examineEditController);
 // app.get('/examiner-edit', authMiddleware_examiner, examineEditPageController);
-//For public folder access.
 
 app.post('/updateResult', authMiddleware_examiner, updateResultController);
+app.post('/showSearchData', authMiddleware_examiner, showSearchDataController);
+//For public folder access.
 app.use(express.static("public"));
 
 

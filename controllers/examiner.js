@@ -1,6 +1,6 @@
 const model = require("../model/model");
 module.exports = async (req, res) => {
-    console.log("Examiner is Called.");
+    console.log("Examiner ( Controller ) is called.");
     const models = await model.find({}).populate("username");
     console.log(req.session);
     // console.log(models);

@@ -1,7 +1,7 @@
 const availableAppointmentsSchema = require("../model/appointments");
 
 module.exports = async (req, res, error) => {
-    console.log("createAppointment is called." + req.session.userId);
+    console.log("createAppointment ( Controller ) is called." + req.session.userId);
     await availableAppointmentsSchema.create({
         date: req.body.date,
         time: req.body.time,

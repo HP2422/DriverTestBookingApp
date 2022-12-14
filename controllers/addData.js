@@ -1,6 +1,6 @@
 const Data = require('../model/model');
 module.exports = async (req, res) => {
-    console.log("Add Data is called to add data in database.");
+    console.log("addData ( Controller ) is called.");
     console.log(req.body);
 
     const object = {

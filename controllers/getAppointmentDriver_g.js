@@ -2,7 +2,7 @@ const Data = require("../model/model");
 const availableAppointmentsSchema = require("../model/appointments");
 
 module.exports = async (req, res) => {
-    console.log("getAppointmentDreiver is called." + req.session.userId);
+    console.log("getAppointmentDriver ( Controller ) is called." + req.session.userId);
     loggedIn = req.session.userId;
     const dateFor = req.query.date;
 

@@ -1,6 +1,6 @@
 const model = require("../model/model");
 module.exports = async (req, res) => {
-    console.log("See Result is called.");
+    console.log("seeResult ( Controller ) is called.");
     console.log(req.session.userId);
 
     const models = await model.findOne({ _id: req.session.userId });

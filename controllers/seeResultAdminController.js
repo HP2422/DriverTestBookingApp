@@ -1,6 +1,6 @@
 const model = require("../model/model");
 module.exports = async (req, res) => {
-    console.log("See Result admin is called.");
+    console.log("seeResultAdmin  ( Controller ) is called.");
 
     const models = await model.find({}).populate("username");
 

@@ -1,6 +1,6 @@
 const model = require("../model/model");
 module.exports = async (req, res) => {
-    console.log("Examiner Search is Called.");
+    console.log("Examiner Search ( Controller ) is called.");
     let payload = req.body.payload.trim();
     let search = await model.find({ testType: { $regex: '.*' + payload + '.*', $options: 'i' } }).exec();
     console.log(search);
