@@ -66,9 +66,9 @@ global.isInfoProvided = false;
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(expressSession({
-  secret: "patel495patel004",
+  secret: "patel495",
   // "Harshkumar Narayanbhai Patel / Student Number :- 8805495 " 
-  // "Jayshriben Gauravkumar Patel / Student Number :- 8817004 " 
+ 
   resave: false,
   saveUninitialized: true,
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URL }),
